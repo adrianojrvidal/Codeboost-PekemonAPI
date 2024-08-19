@@ -491,4 +491,350 @@
   }
 }
 
-// FOOTER
+// MODAL
+.modal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  // Configuração Default antes de abrir o modal
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+
+
+
+  // Efeito de escurecimento da tela ao abrir o modal
+  .overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  // Box do Modal
+  .box {
+    position: relative;
+    width: 100%;
+    max-width: 71rem;
+    height: 50.8rem;
+    background-color: #ffffff;
+    z-index: 1;
+    box-shadow: 0px 10px 40px rgba(13, 12, 71, 0.05);
+    border-radius: 16px;
+    display: flex; // Seprar as divs 'left-container' e 'right-container'
+
+    // Animação de abrir e fechar
+    transform: translateY(4rem);
+    transition: .4s ease-in;
+
+    // Botão de de fechar o modal
+    .close {
+      position: absolute;
+      top: -4.4rem;
+      right: 0;
+      width: 3.6rem;
+      height: 3.6rem;
+      background: #ffffff;
+      border-radius: 8px;
+      @include centerTotalFlex();
+    }
+
+    // Left container
+    .left-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 19.1rem;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      // Background de acordo com o tipo | type-pokemon-modal
+      &[type-pokemon-modal="fire"] {
+        background-image: url("../img/bg-types/fire.svg");
+      }
+      &[type-pokemon-modal="water"] {
+        background-image: url("../img/bg-types/water.svg");
+      }
+      &[type-pokemon-modal="grass"] {
+        background-image: url("../img/bg-types/grass.svg");
+      }
+      &[type-pokemon-modal="poison"] {
+        background-image: url("../img/bg-types/poison.svg");
+      }
+      &[type-pokemon-modal="bug"] {
+        background-image: url("../img/bg-types/bug.svg");
+      }
+      &[type-pokemon-modal="dark"] {
+        background-image: url("../img/bg-types/dark.svg");
+      }
+      &[type-pokemon-modal="dragon"] {
+        background-image: url("../img/bg-types/dragon.svg");
+      }
+      &[type-pokemon-modal="electric"] {
+        background-image: url("../img/bg-types/electric.svg");
+      }
+      &[type-pokemon-modal="fairy"] {
+        background-image: url("../img/bg-types/fairy.svg");
+      }
+      &[type-pokemon-modal="fighting"] {
+        background-image: url("../img/bg-types/fighting.svg");
+      }
+      &[type-pokemon-modal="ground"] {
+        background-image: url("../img/bg-types/ground.svg");
+      }
+      &[type-pokemon-modal="ice"] {
+        background-image: url("../img/bg-types/ice.svg");
+      }
+      &[type-pokemon-modal="normal"] {
+        background-image: url("../img/bg-types/normal.svg");
+      }
+      &[type-pokemon-modal="psychic"] {
+        background-image: url("../img/bg-types/psychic.svg");
+      }
+      &[type-pokemon-modal="rock"] {
+        background-image: url("../img/bg-types/rock.svg");
+      }
+      &[type-pokemon-modal="ghost"] {
+        background-image: url("../img/bg-types/ghost.svg");
+      }
+      &[type-pokemon-modal="steel"] {
+        background-image: url("../img/bg-types/steel.svg");
+      }
+      &[type-pokemon-modal="flying"] {
+        background-image: url("../img/bg-types/flying.svg");
+      }
+
+      //Ícone
+      .icon {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 3.4rem;
+        height: 3.4rem;
+        background-color: #ffffff;
+        border-radius: 50%;
+        @include centerTotalFlex();
+      }
+
+      // Imagem do pokemon
+      .image {
+        position: absolute;
+        left: 1.4rem;
+        bottom: 13.1rem;
+        width: 20.2rem;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    // RIGHT CONTAINER
+    .right-container {
+      padding: 35px 7.2rem 2.9rem 7.4rem;
+      width: 100%;
+
+      // NOME E CÓDIGO
+      .name {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 1rem;
+
+        // Nome
+        h2 {
+          font-family: "Montserrat", sans-serif;
+          font-weight: bold;
+          font-size: 2.8rem;
+          line-height: 3.4rem;
+          letter-spacing: -0.01em;
+          color: #2f3133;
+        }
+        
+        // Código
+        span {
+          font-family: "Montserrat", sans-serif;
+          font-size: 1.6rem;
+          line-height: 2rem;
+          letter-spacing: -0.01em;
+          color: #7a7d80;
+          position: relative;
+          top: -3px;
+          margin-left: 8px;
+        }
+      }
+
+      // TIPOS DO POKEMON | Componente TAG TYPES
+      .type {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 3.2rem;
+
+        li {
+          // Aplicar margem nos 'li' porém sem aplicar no primeiro
+          &:not(:first-child) {
+            margin-left: 1rem;
+          }
+        }
+      }
+
+      // INFORMAÇÕES
+      .info {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+
+        li {
+          // Aplicar margem nos 'li' porém sem aplicar no primeiro
+          &:not(:first-child) {
+            margin-left: 4.8rem;
+          }
+          
+          span {
+            display: block;
+            font-size: 1.3rem;
+            line-height: 1.6rem;
+            letter-spacing: -0.01em;
+            color: #7a7d80;
+            margin-bottom: 0.4rem;
+          }
+
+          strong {
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 1.7rem;
+            letter-spacing: -0.01em;
+            color: #2f3133;
+          }
+        }
+      }
+
+      // WEAKNESSES | Componente TAG TYPES
+      .weak {
+        margin-bottom: 1rem;
+
+        h4 {
+          font-weight: 600;
+          font-size: 1.3rem;
+          line-height: 1.6rem;
+          letter-spacing: -0.01em;
+          color: #4d5053;
+          margin-bottom: 1.6rem;
+        }
+
+        ul {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          flex-wrap: wrap;
+
+          li {
+            margin-bottom: 1rem;
+
+            // Aplicar margem nos 'li' porém sem aplicar no último
+            &:not(:last-child) {
+              margin-right: 1rem;
+            }
+          }
+        }
+      }
+
+      // STATS
+      .stats {
+
+        // Título da DIV
+        h5 {
+          font-weight: 600;
+          font-size: 1.3rem;
+          line-height: 1.6rem;
+          letter-spacing: -0.01em;
+          color: #4d5053;
+          margin-bottom: 1.6rem;
+        }
+
+        // Div Container dos Stats
+        .all {
+          .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            // Margem nas div com classe 'item' sem aplicar na última div
+            &:not(:last-child) {
+              margin-bottom: 1.3rem;
+            }
+
+            // Nome do Stats
+            span {
+              display: block;
+              font-size: 1.2rem;
+              line-height: 1.5rem;
+              color: #7a7d80;
+              width: 8rem;
+            }
+
+            // Barra de Status
+            .bar-status {
+              position: relative;
+              width: 100%;
+              max-width: 28.3rem;
+              height: 3px;
+              background-color: #eff3f6;
+
+              // Barra que fica em cima da barra de status que da a coloração para dar o efeito de preencimento
+              .bar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 56%; // Valor dado pela API
+                height: 100%;
+                z-index: 0;
+                background-color: #c20001;
+              }
+
+              // Lista que da o efeito de separador na barra de status de 20% em 20% = 4 li = 5 barras
+              .separator {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly; // Espalhar os 'li'
+                width: 100%;
+
+                li {
+                  width: 4px;
+                  height: 3px;
+                  background-color: #ffffff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.open-modal {
+  .modal {
+    // Configuração para o modal aberto
+    opacity: 1;
+    pointer-events: all;
+    
+    .box {
+      transform: translateY(0);
+    }
+
+  }
+}

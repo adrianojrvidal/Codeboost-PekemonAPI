@@ -50,7 +50,7 @@
     </button>
 
     <!-- CARD POKEMON -->
-    <button class="card-pokemon grass">
+    <button class="card-pokemon js-open-details-pokemon grass">
       <div class="image">
         <img src="/img/bulbasaur.svg" alt="" class="icon" />
       </div>
@@ -84,6 +84,146 @@
       </div>
     </footer>
 
-    <script type="module" src="js/script.min.js"></script>
+    <!-- MODAL DE DETALHES DO POKEMON -->
+    <div class="modal">
+      <div class="overlay"></div> <!-- Efeito de escurecimento da página após abrir o modal -->
+      <div class="box">
+        <button class="close js-close-details-pokemon">
+          <img src="/img/close.svg" alt="Botão de fechar">
+        </button>
+        <div class="left-container" type-pokemon-modal="grass"> <!-- typePokemonModal = informação usada para alterar o background no CSS -->
+          <div class="icon">
+            <img src="/img/icon-types/grass.svg" alt="Icone">
+          </div>
+          <div class="image">
+            <img src="/img/bulbasaur.svg" alt="Imagem do Pokemon">
+          </div>
+        </div>
+        <div class="right-container"> <!-- Informações -->
+          <div class="name"> <!-- Nome e código -->
+            <h2>Bulbasaur</h2>
+            <span>#001</span>
+          </div>
+          <ul class="type"> <!-- Tipos que o pokemon é | Componente TAG TYPES -->
+            <li>
+              <span class="tag-type grass">Grass</span>
+            </li>
+            <li>
+              <span class="tag-type poison">Poison</span>
+            </li>
+          </ul>
+          <ul class="info"> <!-- Informações -->
+            <li>
+              <span>Height</span>
+              <strong>0.7m</strong>
+            </li>
+            <li>
+              <span>Weight</span>
+              <strong>6.9Kg</strong>
+            </li>
+            <li>
+              <span>Abilities</span>
+              <strong>Overgrow</strong>
+            </li>
+          </ul>
+          <div class="weak"> <!-- Weaknesses | Componente TAG TYPES -->
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>
+                <span class="tag-type fire">Fire</span>
+              </li>
+              <li>
+                <span class="tag-type psychic">Psychic</span>
+              </li>
+              <li>
+                <span class="tag-type flying">Flying</span>
+              </li>
+              <li>
+                <span class="tag-type ice">Ice</span>
+              </li>
+            </ul>
+          </div>
+          <div class="stats">  <!-- Stats -->
+            <h5>Stats</h5>
+            <div class="all">
+              <div class="item"> <!-- DIV Componente para os itens Stats | "HP" -->
+                <span>HP</span>
+                <div class="bar-status">
+                  <div class="bar"></div>
+                  <ul class="separator">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="item"> <!-- "Attack" -->
+                <span>Attack</span>
+                <div class="bar-status">
+                  <div class="bar"></div>
+                  <ul class="separator">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="item"> <!-- "Defense" -->
+                <span>Defense</span>
+                <div class="bar-status">
+                  <div class="bar"></div>
+                  <ul class="separator">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="item"> <!-- "Sp. Attack" -->
+                <span>Sp. Attack</span>
+                <div class="bar-status">
+                  <div class="bar"></div>
+                  <ul class="separator">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="item"> <!-- "Sp. Defense" -->
+                <span>Sp. Defense</span>
+                <div class="bar-status">
+                  <div class="bar"></div>
+                  <ul class="separator">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="item"> <!-- "Speed" -->
+                <span>Speed</span>
+                <div class="bar-status">
+                  <div class="bar"></div>
+                  <ul class="separator">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/js/script.min.js"></script>
   </body>
 </html>
