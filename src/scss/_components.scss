@@ -1,0 +1,494 @@
+// TAG POKEDEX
+.tag {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 24.4rem;
+  max-width: 121rem;
+  padding: 6px 4px;
+
+  &.blue-tag {
+    .icon {
+      background-color: rgba(63, 104, 186, 0.15);
+    }
+    span {
+      color: #3f67ba;
+    }
+  }
+
+  .icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-color: rgba(194, 0, 0, 0.15);
+    border-radius: 50%;
+    @include centerTotalFlex;
+    margin-right: 8px;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 150%;
+    color: #c20001;
+  }
+}
+
+// BARRA DE PESQUISA
+.search {
+  background-color: #ffffff;
+  border-radius: 12.2rem;
+  width: 100%;
+  max-width: 40.3rem;
+  height: 5.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2.5rem;
+  padding-right: 0.7rem;
+
+  input {
+    border: 0;
+    outline: none;
+    width: 80%;
+    font-size: 1.5rem;
+    line-height: 150%;
+    color: #a0afba;
+    &::placeholder {
+      color: #a0afba;
+    }
+  }
+
+  button {
+    width: 4.2rem;
+    height: 4.2rem;
+    background-color: rgba(158, 185, 225, 0.15);
+    border-radius: 50%;
+    @include centerTotalFlex;
+    border: 1px solid transparent;
+    &:hover {
+      border-color: #3e75c3;
+    }
+    transition: border-color 0.3s;
+  }
+}
+
+// MENU LATERAL DE SELEÇÃO POR TIPO
+.type-filter {
+  display: flex;
+  align-items: center;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  &:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  //ICONE
+  .icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    @include centerTotalFlex;
+    margin-right: 0.6rem;
+  }
+
+  // DESCRIÇÃO DO TIPO
+  span {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 150%;
+  }
+
+  // VARIAÇÃO DE CORES DO MENU LATERAL DE SELEÇÃO POR TIPO
+  &.ghost {
+    span {
+      color: var(--type-ghost);
+    }
+  }
+  &.bug {
+    span {
+      color: var(--type-bug);
+    }
+  }
+  &.dark {
+    span {
+      color: var(--type-dark);
+    }
+  }
+  &.dragon {
+    span {
+      color: var(--type-dragon);
+    }
+  }
+  &.electric {
+    span {
+      color: #eed967;
+    }
+  }
+  &.fairy {
+    span {
+      color: var(--type-fairy);
+    }
+  }
+  &.fighting {
+    span {
+      color: var(--type-fighting);
+    }
+  }
+  &.ground {
+    span {
+      color: var(--type-ground);
+    }
+  }
+  &.ice {
+    span {
+      color: var(--type-ice);
+    }
+  }
+  &.normal {
+    span {
+      color: var(--type-normal);
+    }
+  }
+  &.poison {
+    span {
+      color: var(--type-poison);
+    }
+  }
+  &.psychic {
+    span {
+      color: var(--type-psychic);
+    }
+  }
+  &.rock {
+    span {
+      color: var(--type-rock);
+    }
+  }
+  &.grass {
+    span {
+      color: var(--type-grass);
+    }
+  }
+  &.steel {
+    span {
+      color: var(--type-steel);
+    }
+  }
+  &.water {
+    span {
+      color: var(--type-water);
+    }
+  }
+  &.fire {
+    span {
+      color: var(--type-fire);
+    }
+  }
+  &.flying {
+    span {
+      color: var(--type-flying);
+    }
+  }
+}
+
+// CARD POKEMON
+
+.card-pokemon {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  height: 30.4rem;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 51px -5px rgba(183, 189, 193, 0.3);
+  border-radius: 12px;
+  z-index: 1;
+  transition: all 0.3s;
+
+  // Efeito de zomm do card
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 12px 40px -5px rgba(90, 96, 100, 0.3);
+  }
+
+  // Cor da mascara da imagem do Pokemon de acordo com o tipo dele
+  &.grass {
+    .image {
+      &:after {
+        background-color: rgba(114, 184, 97, 0.2);
+      }
+    }
+  }
+  &.bug {
+    .image {
+      &:after {
+        background-color: rgba(156, 186, 72, 0.2);
+      }
+    }
+  }
+  &.dark {
+    .image {
+      &:after {
+        background-color: rgba(89, 87, 97, 0.2);
+      }
+    }
+  }
+  &.dragon {
+    .image {
+      &:after {
+        background-color: rgba(44, 106, 193, 0.2);
+      }
+    }
+  }
+  &.electric {
+    .image {
+      &:after {
+        background-color: rgba(238, 218, 103, 0.2);
+      }
+    }
+  }
+  &.fairy {
+    .image {
+      &:after {
+        background-color: rgba(226, 150, 225, 0.2);
+      }
+    }
+  }
+  &.fighting {
+    .image {
+      &:after {
+        background-color: rgba(196, 77, 97, 0.2);
+      }
+    }
+  }
+  &.ground {
+    .image {
+      &:after {
+        background-color: rgba(206, 128, 86, 0.2);
+      }
+    }
+  }
+  &.ice {
+    .image {
+      &:after {
+        background-color: rgba(139, 206, 193, 0.2);
+      }
+    }
+  }
+  &.normal {
+    .image {
+      &:after {
+        background-color: rgba(160, 162, 159, 0.2);
+      }
+    }
+  }
+  &.poison {
+    .image {
+      &:after {
+        background-color: rgba(172, 106, 202, 0.2);
+      }
+    }
+  }
+  &.psychic {
+    .image {
+      &:after {
+        background-color: rgba(235, 140, 133, 0.2);
+      }
+    }
+  }
+  &.rock {
+    .image {
+      &:after {
+        background-color: rgba(139, 206, 193, 0.2);
+      }
+    }
+  }
+  &.ghost {
+    .image {
+      &:after {
+        background-color: rgba(97, 110, 183, 0.2);
+      }
+    }
+  }
+  &.steel {
+    .image {
+      &:after {
+        background-color: rgba(101, 148, 161, 0.2);
+      }
+    }
+  }
+  &.water {
+    .image {
+      &:after {
+        background-color: rgba(136, 163, 212, 0.2);
+      }
+    }
+  }
+  &.fire {
+    .image {
+      &:after {
+        background-color: rgba(246, 109, 109, 0.2);
+      }
+    }
+  }
+  &.flying {
+    .image {
+      &:after {
+        background-color: rgba(166, 187, 232, 0.2);
+      }
+    }
+  }
+
+  // Imagem do Pokemon
+  .image {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    @include centerTotalFlex;
+    margin: 0 auto;
+    margin-bottom: 1.4rem;
+
+    .thumb-img {
+      max-width: 14.2rem;
+    }
+
+    // Mascara da Imagem
+    &:after {
+      content: "";
+      width: 16.5rem;
+      height: 16.5rem;
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+    }
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 2.8rem;
+
+    .text {
+      span {
+        text-align: left;
+        display: block;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 150%;
+        color: #7a7d80;
+        margin-bottom: 0.6rem;
+      }
+    }
+
+    .icon {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// TAGS POKEMONS
+.tag-type {
+  display: inline-block;
+  padding: 0 2.5rem;
+  line-height: 2.4rem;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  font-family: "Montserrat", sans-serif;
+
+  // Cores de acordo com o tipo
+  &.bug {
+    color: var(--type-bug);
+    background-color: rgba(156, 186, 72, 0.1);
+  }
+  &.dark {
+    color: var(--type-dark);
+    background-color: rgba(89, 87, 97, 0.1);
+  }
+  &.dragon {
+    color: var(--type-dragon);
+    background-color: rgba(44, 106, 193, 0.1);
+  }
+  &.electric {
+    color: var(--type-electric);
+    background-color: rgba(212, 188, 52, 0.1);
+  }
+  &.fairy {
+    color: var(--type-fairy);
+    background-color: rgba(226, 150, 225, 0.1);
+  }
+  &.fighting {
+    color: var(--type-fighting);
+    background-color: rgba(196, 77, 97, 0.1);
+  }
+  &.ground {
+    color: var(--type-ground);
+    background-color: rgba(206, 128, 86, 0.1);
+  }
+  &.ice {
+    color: var(--type-ice);
+    background-color: rgba(113, 186, 171, 0.1);
+  }
+  &.normal {
+    color: var(--type-normal);
+    background-color: rgba(144, 144, 144, 0.1);
+  }
+  &.poison {
+    color: var(--type-poison);
+    background-color: rgba(172, 106, 202, 0.1);
+  }
+  &.psychic {
+    color: var(--type-psychic);
+    background-color: rgba(235, 140, 133, 0.1);
+  }
+  &.rock {
+    color: var(--type-rock);
+    background-color: rgba(132, 190, 179, 0.1);
+  }
+  &.ghost {
+    color: var(--type-ghost);
+    background-color: rgba(97, 110, 183, 0.1);
+  }
+  &.grass {
+    color: var(--type-grass);
+    background-color: rgba(114, 184, 97, 0.1);
+  }
+  &.steel {
+    color: var(--type-steel);
+    background-color: rgba(101, 148, 161, 0.1);
+  }
+  &.water {
+    color: var(--type-water);
+    background-color: rgba(79, 120, 190, 0.1);
+  }
+  &.fire {
+    color: var(--type-fire);
+    background-color: rgba(233, 99, 3, 0.1);
+  }
+  &.flying {
+    color: var(--type-flying);
+    background-color: rgba(117, 140, 189, 0.1);
+  }
+}
+
+// BOTÃO "LOAD MORE"
+.btn-load-more {
+  background-color: rgba(63, 93, 179, 0.1);
+  border-radius: 6px;
+  padding: 1.4rem 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  color: var(--blue-primary);
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: var(--blue-primary);
+    color: #ffffff;
+  }
+}
+
+// FOOTER

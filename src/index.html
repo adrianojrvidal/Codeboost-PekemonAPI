@@ -2,29 +2,88 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <!-- Fontes | Inter e Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <head>
+    <!-- Fontes | Inter e Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Codificação -->
-  <meta charset="UTF-8">
+    <!-- Codificação -->
+    <meta charset="UTF-8" />
 
-  <!-- Responsividade -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Título -->
-  <title>Codeboost - Pokemon API</title>
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.min.css">
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</head>
-<body>
+    <!-- Título -->
+    <title>Codeboost - Pokemon API</title>
 
-  <p>Tgeste</p>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+  <body>
+    <!-- COMPONENTES -->
+    <!-- TAG POKEDEX -->
+    <div class="tag blue-tag">
+      <div class="icon">
+        <img src="/img/bag-red.svg" alt="Mochila" />
+      </div>
+      <span>Pokedex</span>
+    </div>
 
-  <script type="module" src="js/script.min.js"></script>
-</body>
+    <!-- BARRA DE PESQUISA -->
+    <div class="search">
+      <input type="text" placeholder="Search name or code" />
+      <button type="button">
+        <img src="/img/icon-search.svg" alt="Lupa de pesquisa" />
+      </button>
+    </div>
+
+    <!-- ITEM MENU LATERAL -->
+    <button class="type-filter ghost">
+      <div class="icon">
+        <img src="/img/icon-types/ghost.svg" alt="Icone tipo Ghost" />
+      </div>
+      <span>Ghost</span>
+    </button>
+
+    <!-- CARD POKEMON -->
+    <button class="card-pokemon grass">
+      <div class="image">
+        <img src="/img/bulbasaur.svg" alt="" class="icon" />
+      </div>
+      <div class="info">
+        <div class="text">
+          <span>#001</span>
+          <h3>Bulbasaur</h3>
+        </div>
+        <div class="icon">
+          <img src="/img/icon-types/grass.svg" alt="Icone do tipo do pokemon" />
+        </div>
+      </div>
+    </button>
+
+    <!-- TAG TYPES -->
+    <span class="tag-type bug">Bug</span>
+
+    <!-- BOTÃO 'LOAD MORE' -->
+    <button class="btn-load-more">Load more Pokémons</button>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="text">
+          <h3>Módulo JavaScript</h3>
+          <p>Consumindo e exibindo dados de uma API</p>
+        </div>
+        <a href="https://codeboost.com.br" target="_blank">
+          <img src="img/codeboost.svg" alt="">
+        </a>
+      </div>
+    </footer>
+
+    <script type="module" src="js/script.min.js"></script>
+  </body>
 </html>
